@@ -5,6 +5,11 @@ class GradeCalculator:
         self.points_list = []
 
     def getGrade(self, points):
+        if not isinstance(points, (int, float)):
+            raise ValueError("points должен быть числом")
+
+        if points < 0 or points > 100:
+            raise ValueError("Оценка должна быть от 0 до 100")
         self.points = points
         if self.points < 0 or self.points > 100:
             return ValueError
@@ -36,5 +41,5 @@ class GradeCalculator:
             if points_list <0 or points_list > 100:
                 return ValueError
 
-student1 = GradeCalculator(-1)
-print(f"Оценка: {student1.getGrade(student1.points)}")
+
+
